@@ -8,7 +8,11 @@ namespace Commander.Repository
 {
     public interface ICommanderRepo
     {
-        public IEnumerable<Models.Command> GetAllCommands();
-        public Command GetCommandById(int id);
+        IEnumerable<Models.Command> GetAllCommands();
+        Command GetCommandById(int id);
+        void CreateCommand(Command cmd);
+        bool SaveChanges();
+        void UpdateCommand(Command cmd);
+        void DeleteCommand(Command cmd);
     }
 }

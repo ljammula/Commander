@@ -8,6 +8,16 @@ namespace Commander.Repository
 {
     public class MockCommanderRepo : ICommanderRepo
     {
+        void ICommanderRepo.CreateCommand(Command cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        void ICommanderRepo.DeleteCommand(Command cmd)
+        {
+            throw new NotImplementedException();
+        }
+
         IEnumerable<Command> ICommanderRepo.GetAllCommands()
         {
             var commands = new List<Command>();
@@ -33,6 +43,16 @@ namespace Commander.Repository
         {
             return new Command
                 {Id = 0, HowTo = "Make Tea", Line = "Boil Milk, Add Sugar, Add Tea powder", Platform = "Stove"};
+        }
+
+        bool ICommanderRepo.SaveChanges()
+        {
+            throw new NotImplementedException();
+        }
+
+        void ICommanderRepo.UpdateCommand(Command cmd)
+        {
+            throw new NotImplementedException();
         }
     }
 }
