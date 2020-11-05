@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Commander
 {
@@ -41,7 +42,16 @@ namespace Commander
             );
             services.AddScoped<ICommanderRepo, SqlCommanderRepo>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
+            //Add JWT bearer authentication, project level
+            services.AddAuthentication("Bearer")
+                .AddJwtBearer("Bearer", options =>
+                {
+                    options.Authority = "https://localhost:5005";
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateAudience = false
+                    };
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +65,8 @@ namespace Commander
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

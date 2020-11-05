@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "6ad735c4-3259-4472-ac73-7f23401ee982",
+		"name": "Commander",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Commands",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/commands/v1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"commands",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Command By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/commands/v1/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"commands",
+						"v1",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Command By Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/commands/v1/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"commands",
+						"v1",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Command",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"howTo\": \"build project\",\r\n    \"line\": \"dotnet build\",\r\n    \"platform\": \".Net Core CLI\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/commands/v1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"commands",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Command (PUT)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"howTo\": \"build projects\",\r\n    \"line\": \"dotnet build\",\r\n    \"platform\": \".Net\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/commands/v1/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"commands",
+						"v1",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Partial Update Command (PATCH)",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"op\": \"replace\",\r\n        \"path\": \"/line\",\r\n        \"value\": \"dotnet ef migrations add <MigrationName>\"\r\n    }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/commands/v1/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"commands",
+						"v1",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
